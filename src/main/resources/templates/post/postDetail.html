@@ -7,13 +7,12 @@
 	<div class="w-50">
 		<h1>글 상세</h1>
 		
-		
-		<input type="text" id="subject"  th:value="${post.subject}" class="form-control" placeholder="제목을 입력하세요">
-		<extarea rows="10" id="content"  th:text="${post.content}" class="form-control" placeholder="내용을 입력하세요" ></textarea>
+		<input type="text" id="subject" th:value="${post.subject}" class="form-control" placeholder="제목을 입력하세요">
+		<textarea rows="10" id="content" class="form-control" placeholder="내용을 입력하세요" th:text="${post.content}"></textarea>
 		
 		<!-- 이미지가 있을 때만 영역 노출 -->
 		<div class="my-3" th:if="${post.imagePath != null}">
-			<img th:src="https://cdn.pixabay.com/photo/2023/11/16/22/35/church-8393259_1280.jpg" alt="본문 이미지" width="300">
+			<img th:src="${post.imagePath}" alt="본문 이미지" width="300">
 		</div>
 		
 		<div class="d-flex justify-content-end my-3">
@@ -24,11 +23,10 @@
 			<button type="button" id="deleteBtn" class="btn btn-secondary">삭제</button>
 			
 			<div>
-				<a href="/post/post-list-view"  class="btn btn-dark">목록</a>
+				<a href="/post/post-list-view" class="btn btn-dark">목록</a>
 				<button type="button" id="saveBtn" class="btn btn-warning">수정</button>
 			</div>
 		</div>
-		
 	</div>
 </section>
 
