@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.memo.aop.TimeTrace;
 import com.memo.post.bo.PostBO;
 import com.memo.post.domain.Post;
 
@@ -21,6 +22,7 @@ public class PostController {
 	@Autowired
 	private PostBO postBO;
 	
+	@TimeTrace
 	@GetMapping("/post-list-view")
 	public String postListView(
 			@RequestParam(value="prevId",required = false) Integer prevIdparam,
@@ -70,7 +72,13 @@ public class PostController {
 	public String postCreateView() {
 		return "post/postCreate";
 	}
-	
+	/**
+	 * 
+	 * @param postId
+	 * @param model
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/post-detail-view")
 	public String postDetailView(
 			@RequestParam("postId") int postId,

@@ -16,7 +16,6 @@ public class UserController {
 	 */
 	@GetMapping("/sign-up-view")
 	public String signUpView() {
-		// 가운데 레이아웃 조각만 내려주면 전체 레이아웃으로 구성된다.
 		return "user/signUp";
 	}
 	
@@ -36,12 +35,12 @@ public class UserController {
 	 */
 	@RequestMapping("/sign-out")
 	public String signOut(HttpSession session) {
-		// session 내용 비움
+	
 		session.removeAttribute("userId");
 		session.removeAttribute("userLoginId");
 		session.removeAttribute("userName");
 		
-		// 로그인 페이지로 이동
+		
 		return "redirect:/user/sign-in-view";
 	}
 }
